@@ -1,0 +1,22 @@
+name: Docker build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el codigo
+        uses: actions/checkout@v4
+
+      - name: Construir imagen web-estatica
+        run: docker build -t web-estatica ./web-estatica
+
+      - name: Construir imagen app-flask-db
+        run: docker build -t app-flask-db ./app-flask-db
+
+      - name: Validar docker-compose
+        run: DB_PASSWORD=test docker compose -f app-flask-db/docker-compose.yml config
