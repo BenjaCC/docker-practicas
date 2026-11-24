@@ -1,4 +1,6 @@
 # Docker prácticas
+
+![Docker build](https://github.com/BenjaCC/docker-practicas/actions/workflows/docker-build.yml/badge.svg)
 ## web-estatica
 
 Página HTML servida con nginx dentro de un contenedor Docker.
